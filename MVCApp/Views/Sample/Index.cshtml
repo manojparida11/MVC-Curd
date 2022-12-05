@@ -1,0 +1,66 @@
+﻿@model MVCApp.Context.tbl_TestData
+
+
+<script src="~/Scripts/jquery.validate.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+
+<style>
+    .error {
+        color:red;
+    }
+</style>
+
+@using (Html.BeginForm("AddSample", "Sample", FormMethod.Post))
+{
+    <div class="container">
+        <div class="form-group">
+            @Html.HiddenFor(x=>x.ID)
+            <label>Type</label>
+            @Html.ValidationMessageFor(x => x.Type, "", new {@class = "error"})
+            @Html.TextBoxFor(x => x.Type, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label>Content</label>
+            @Html.TextAreaFor(x => x.Content, new { @class = "form-control", @rows = "5" })
+        </div>
+        <div class="form-group">
+            <label>H1</label>
+            @Html.TextBoxFor(x => x.H1, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label>Title</label>
+            @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label>Description</label>
+            @Html.TextBoxFor(x => x.Description, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label>Keyword</label>
+            @Html.TextBoxFor(x => x.Keyword, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label>URl</label>
+            @Html.ValidationMessageFor(x => x.URL, "", new { @class = "error" })
+            @Html.TextBoxFor(x => x.URL, new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">SAVE</button>
+            <button type="submit" class="btn btn-primary">CLEAR</button>
+        </div>
+    </div>
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div>
+    </div>
+</body>
+</html>

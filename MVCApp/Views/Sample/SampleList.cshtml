@@ -1,0 +1,33 @@
+﻿@model List<MVCApp.Context.tbl_TestData>
+@{
+    ViewBag.Title = "SampleList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>SampleList</h2>
+
+<table class="table table-hover">
+    <tr>
+        <th>S.No</th>
+        <th>ID</th>
+        <th>type</th>
+        <th>H1 Tag</th>
+        <th></th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.ID</td>
+            <td>@item.ID</td>
+            <td>@item.Type</td>
+            <td>@item.H1</td>
+            <td>
+                <a href="@Url.Action("Index", new {item.ID, item.Type, item.Content, item.H1, item.Title, item.Description, item.Keyword, item.URL})">Edit</a>
+            </td>
+            <td>
+                <a href="@Url.Action("Delete", new {item.ID})">Delete</a>
+            </td>
+        </tr>
+    }
+</table>
